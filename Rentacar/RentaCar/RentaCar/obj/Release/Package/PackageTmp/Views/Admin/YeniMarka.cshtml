@@ -1,0 +1,16 @@
+﻿
+@model RentaCar.Models.tbl_marka
+
+@{
+    ViewBag.Title = "YeniMarka";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Marka Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(c => c.MarkaAdi)
+    @Html.TextBoxFor(c => c.MarkaAdi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Marka Ekle</button>
+</form>

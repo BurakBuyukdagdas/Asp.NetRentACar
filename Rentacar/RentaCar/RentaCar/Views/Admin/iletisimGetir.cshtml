@@ -1,0 +1,31 @@
+﻿
+
+@model RentaCar.Models.tbl_Ayarlar
+
+@{
+    ViewBag.Title = "iletisimGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>İletişim Güncelle</h2>
+
+br />
+@using (Html.BeginForm("iletisimGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(c => c.ID)
+    @Html.TextBoxFor(c => c.ID, new { @class = "form-control", @readonly = "raadonly" })
+    <br />
+    @Html.LabelFor(c => c.TelefonNo)
+    @Html.TextBoxFor(c => c.TelefonNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Mail)
+    @Html.TextBoxFor(c => c.Mail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Adres)
+    @Html.TextBoxFor(c => c.Adres, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.KısaAciklama)
+    @Html.TextAreaFor(c => c.KısaAciklama, 13, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">İletişim Güncelle</button>
+}

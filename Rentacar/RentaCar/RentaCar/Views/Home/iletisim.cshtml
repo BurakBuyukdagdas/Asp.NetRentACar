@@ -1,0 +1,110 @@
+﻿
+
+@using RentaCar.Models
+
+
+
+
+
+@{
+    ViewBag.Title = "iletisim";
+    Layout = "~/Views/Shared/defaultLayout.cshtml";
+}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/Content/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Anasayfa <i class="ion-ios-arrow-forward"></i></a></span> <span>İletişim <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">İletişim</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<br />
+
+<div class="col-md-12 text-center">
+    <p class="current-time">Saat: <span id="current-time"></span></p>
+</div>
+
+<style>
+    .current-time {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333; /* Saat rengi */
+    }
+
+    #current-time {
+        font-size: 24px;
+        color: #f96d00; /* Saat rengi */
+    }
+</style>
+
+
+<script>function updateTime() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours();
+            const minutes = currentTime.getMinutes();
+            const seconds = currentTime.getSeconds();
+
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("current-time").textContent = formattedTime;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000); // Her saniyede bir saat bilgisini güncelle</script>
+
+
+
+
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+            <div class="col-md-4">
+                <div class="row mb-5">
+                    <div class="col-md-12">
+                        <div class="border w-100 p-4 rounded mb-2 d-flex">
+                            <div class="icon mr-3">
+                                <span class="icon-map-o"></span>
+                            </div>
+                            <p><span>Adres:</span> @ViewBag.Adres</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="border w-100 p-4 rounded mb-2 d-flex">
+                            <div class="icon mr-3">
+                                <span class="icon-mobile-phone"></span>
+                            </div>
+                            <p><span>Telefon:</span> <a href="tel://1234567920">@ViewBag.Telefon</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="border w-100 p-4 rounded mb-2 d-flex">
+                            <div class="icon mr-3">
+                                <span class="icon-envelope-o"></span>
+                            </div>
+                            <p><span>Mail:</span> <a href="mailto:info@yoursite.com">@ViewBag.Mail</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 block-9 mb-md-5">
+                <div class="col-md-12">
+                    <iframe width="100%"
+                            height="400"
+                            frameborder="0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24109.077231685678!2d27.138684!3d38.317947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b67d96bde1eab9%3A0x9433722f2b1a081c!2sGaziemir%2C%20%C4%B0zmir%2C%20Turkey!5e0!3m2!1sen!2sus!4v1628818743149!5m2!1sen!2sus"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,45 @@
+﻿
+
+@model List<RentaCar.Models.tbl_Ayarlar>
+
+
+@{
+    ViewBag.Title = "iletisim";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>İletişim Sayfası</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Telefon Numarası</th>
+                <th>Mail</th>
+                <th>Adres</th>
+                <th>Kısa Açıklama</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.ID</td>
+                    <td>@c.TelefonNo</td>
+                    <td>@c.Mail</td>
+                    <td>@c.Adres</td>
+                    <td>@c.KısaAciklama</td>
+                    <td><a href="/Admin/iletisimGetir/@c.ID" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+<br />
+
+

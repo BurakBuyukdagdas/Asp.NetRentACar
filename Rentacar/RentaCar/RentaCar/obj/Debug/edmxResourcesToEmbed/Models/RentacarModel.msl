@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="u1400114_dbA9AModelStoreContainer" CdmEntityContainer="u1400114_dbA9AEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Admin">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_Admin">
+        <MappingFragment StoreEntitySet="tbl_Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="KullaniciAdin" ColumnName="KullaniciAdin" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Arac">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_Arac">
+        <MappingFragment StoreEntitySet="tbl_Arac">
+          <ScalarProperty Name="AracID" ColumnName="AracID" />
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
+          <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Rengi" ColumnName="Rengi" />
+          <ScalarProperty Name="Vitesi" ColumnName="Vitesi" />
+          <ScalarProperty Name="Gorsel" ColumnName="Gorsel" />
+          <ScalarProperty Name="Fiyati" ColumnName="Fiyati" />
+          <ScalarProperty Name="Onecikanlar" ColumnName="Onecikanlar" />
+          <ScalarProperty Name="Aktifmi" ColumnName="Aktifmi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Aracturu">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_Aracturu">
+        <MappingFragment StoreEntitySet="tbl_Aracturu">
+          <ScalarProperty Name="TipID" ColumnName="TipID" />
+          <ScalarProperty Name="TipAdi" ColumnName="TipAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Ayarlar">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_Ayarlar">
+        <MappingFragment StoreEntitySet="tbl_Ayarlar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AltsayfaAdet" ColumnName="AltsayfaAdet" />
+          <ScalarProperty Name="AnasayfaAdet" ColumnName="AnasayfaAdet" />
+          <ScalarProperty Name="TelefonNo" ColumnName="TelefonNo" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="KısaAciklama" ColumnName="KısaAciklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Blog">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_Blog">
+        <MappingFragment StoreEntitySet="tbl_Blog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="BlogImage" ColumnName="BlogImage" />
+          <ScalarProperty Name="Onecikan" ColumnName="Onecikan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Hakkimizda">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_Hakkimizda">
+        <MappingFragment StoreEntitySet="tbl_Hakkimizda">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_iletisim">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_iletisim">
+        <MappingFragment StoreEntitySet="tbl_iletisim">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_marka">
+      <EntityTypeMapping TypeName="u1400114_dbA9AModel.tbl_marka">
+        <MappingFragment StoreEntitySet="tbl_marka">
+          <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+          <ScalarProperty Name="MarkaAdi" ColumnName="MarkaAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

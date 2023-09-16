@@ -1,0 +1,42 @@
+﻿
+@model List<RentaCar.Models.tbl_Hakkimizda>
+
+
+@{
+    ViewBag.Title = "HakkimizdaSayfasi";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Hakkımızda Sayfası</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>HakkızdaID</th>
+                <th>Hakkımızda</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.ID</td>
+                    <td>@c.Aciklama</td>
+                    <td><a href="/Admin/HakkimizdaSil/@c.ID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Admin/HakkimizdaGetir/@c.ID" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a href="/Admin/YeniHakkimizda/" class="btn btn-primary">Hakkımızda Ekle</a>
+<br />
+<br />
+<br />
+
+
+

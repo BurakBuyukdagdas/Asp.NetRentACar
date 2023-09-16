@@ -1,0 +1,66 @@
+﻿@model RentaCar.Models.tbl_Arac
+
+@{
+    ViewBag.Title = "YeniAracEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Arac Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(c => c.tbl_Aracturu.TipAdi)
+    @Html.DropDownListFor(c => c.tbl_Aracturu.TipAdi, GetTipAdiSelectList(), "Lütfen bir tür seçin", new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.tbl_marka.MarkaAdi)
+    @Html.DropDownListFor(c => c.tbl_marka.MarkaAdi, GetMarkaAdiSelectList(), "Lütfen bir marka seçin", new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Aciklama)
+    @Html.TextAreaFor(c => c.Aciklama,12,1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Rengi)
+    @Html.TextBoxFor(c => c.Rengi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Vitesi)
+    @Html.TextBoxFor(c => c.Vitesi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Gorsel)
+    @Html.TextBoxFor(c => c.Gorsel, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Fiyati)
+    @Html.TextBoxFor(c => c.Fiyati, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Onecikanlar,"Öne Çıkanlar (1-Öne Çıkan,0-Öne çıkmaz)")
+    @Html.TextBoxFor(c => c.Onecikanlar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Aktifmi,"Aktif mi (1-Ürün Görünür,0-Ürün Görünmez)")
+    @Html.TextBoxFor(c => c.Aktifmi, new { @class = "form-control" })
+    <br />
+    <br />
+    <button class="btn btn-primary">Araç Ekle</button>
+</form>
+
+@*     Aşağıda olanlar Araç türü ve markası sql den combobox  olarak gelmesini sağlamaktır.      *@
+
+@functions {
+    RentaCar.Models.u1400114_dbA9AEntities model = new RentaCar.Models.u1400114_dbA9AEntities(); // rentacarEntities sınıfından bir örnek oluşturun.
+
+    SelectList GetTipAdiSelectList()
+    {
+        var tipAdiList = model.tbl_Aracturu.Select(t => new SelectListItem
+        {
+            Text = t.TipAdi,
+            Value = t.TipAdi
+        }).ToList();
+        return new SelectList(tipAdiList, "Value", "Text");
+    }
+
+    SelectList GetMarkaAdiSelectList()
+    {
+        var markaAdiList = model.tbl_marka.Select(m => new SelectListItem
+        {
+            Text = m.MarkaAdi,
+            Value = m.MarkaAdi
+        }).ToList();
+        return new SelectList(markaAdiList, "Value", "Text");
+    }
+}

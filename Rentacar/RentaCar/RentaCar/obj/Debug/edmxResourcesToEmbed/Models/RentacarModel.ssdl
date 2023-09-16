@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="u1400114_dbA9AModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdin" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sifre" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Arac">
+    <Key>
+      <PropertyRef Name="AracID" />
+    </Key>
+    <Property Name="AracID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipID" Type="int" />
+    <Property Name="MarkaID" Type="int" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="Rengi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vitesi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gorsel" Type="nvarchar(max)" />
+    <Property Name="Fiyati" Type="nvarchar(max)" />
+    <Property Name="Onecikanlar" Type="int" />
+    <Property Name="Aktifmi" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Aracturu">
+    <Key>
+      <PropertyRef Name="TipID" />
+    </Key>
+    <Property Name="TipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Ayarlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AltsayfaAdet" Type="int" />
+    <Property Name="AnasayfaAdet" Type="int" />
+    <Property Name="TelefonNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+    <Property Name="KısaAciklama" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Blog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="Baslik" Type="nvarchar(max)" />
+    <Property Name="Tarih" Type="datetime" Nullable="false" />
+    <Property Name="BlogImage" Type="nvarchar(max)" />
+    <Property Name="Onecikan" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Hakkimizda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_iletisim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar(max)" />
+    <Property Name="Mail" Type="nvarchar(max)" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_marka">
+    <Key>
+      <PropertyRef Name="MarkaID" />
+    </Key>
+    <Property Name="MarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarkaAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tbl_Arac_tbl_Aracturu">
+    <End Role="tbl_Aracturu" Type="Self.tbl_Aracturu" Multiplicity="0..1" />
+    <End Role="tbl_Arac" Type="Self.tbl_Arac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Aracturu">
+        <PropertyRef Name="TipID" />
+      </Principal>
+      <Dependent Role="tbl_Arac">
+        <PropertyRef Name="TipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Arac_tbl_marka">
+    <End Role="tbl_marka" Type="Self.tbl_marka" Multiplicity="0..1" />
+    <End Role="tbl_Arac" Type="Self.tbl_Arac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_marka">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="tbl_Arac">
+        <PropertyRef Name="MarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="u1400114_dbA9AModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Arac" EntityType="Self.tbl_Arac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Aracturu" EntityType="Self.tbl_Aracturu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Ayarlar" EntityType="Self.tbl_Ayarlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Blog" EntityType="Self.tbl_Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Hakkimizda" EntityType="Self.tbl_Hakkimizda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_iletisim" EntityType="Self.tbl_iletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_marka" EntityType="Self.tbl_marka" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_Arac_tbl_Aracturu" Association="Self.FK_tbl_Arac_tbl_Aracturu">
+      <End Role="tbl_Aracturu" EntitySet="tbl_Aracturu" />
+      <End Role="tbl_Arac" EntitySet="tbl_Arac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Arac_tbl_marka" Association="Self.FK_tbl_Arac_tbl_marka">
+      <End Role="tbl_marka" EntitySet="tbl_marka" />
+      <End Role="tbl_Arac" EntitySet="tbl_Arac" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

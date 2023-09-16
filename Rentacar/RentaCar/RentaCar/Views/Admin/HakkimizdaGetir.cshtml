@@ -1,0 +1,22 @@
+﻿
+@model RentaCar.Models.tbl_Hakkimizda
+
+
+@{
+    ViewBag.Title = "HakkimizdaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Açıklama Güncelle</h2>
+
+<br />
+@using (Html.BeginForm("HakkimizdaGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(c => c.ID)
+    @Html.TextBoxFor(c => c.ID, new { @class = "form-control", @readonly = "raadonly" })
+    <br />
+    @Html.LabelFor(c => c.Aciklama)
+    @Html.TextAreaFor(c => c.Aciklama,13,1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Hakkımızda Güncelle</button>
+}

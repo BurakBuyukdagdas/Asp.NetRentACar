@@ -1,0 +1,22 @@
+﻿
+
+@model RentaCar.Models.tbl_Aracturu
+
+@{
+    ViewBag.Title = "TurGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Araç Türü Güncelle</h2>
+<br />
+@using (Html.BeginForm("TurGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(c => c.TipID)
+    @Html.TextBoxFor(c => c.TipID, new { @class = "form-control", @readonly="readonly"})
+    <br />
+    @Html.LabelFor(c => c.TipAdi, "Araç Türü Adı")
+    @Html.TextBoxFor(c => c.TipAdi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Türü Güncelle</button>
+}
+

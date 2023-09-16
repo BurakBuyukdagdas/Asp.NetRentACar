@@ -1,0 +1,71 @@
+﻿@using RentaCar.MVVM
+@model AltSayfa
+@using PagedList.Mvc
+@using PagedList
+
+@{
+    ViewBag.Title = "BLog";
+    Layout = "~/Views/Shared/defaultLayout.cshtml";
+}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/Content/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Anasayfa <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Blog</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        @foreach (var item in Model.BlogSayfa)
+        {
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12 text-center d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end mb-md-5">
+                        <a href="/Home/BlogDetay/@item.ID" class="block-20 img" style="background-image: url('@item.BlogImage'); background-size: cover; background-position: center;">
+                        </a>
+                        <div class="text px-md-5 pt-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">@item.Tarih.ToString("dd-MM-yyyy")</a></div>
+                            </div>
+                            <h3 class="heading mt-2"><a href="/Home/BlogDetay/@item.ID">@item.Baslik</a></h3>
+                            <p>@(item.Aciklama.Length > 150 ? item.Aciklama.Substring(0, 150) + "..." : item.Aciklama)</p>
+                            <p><a href="/Home/BlogDetay/@item.ID" class="btn btn-primary">Devamı &nbsp; <span class="icon-long-arrow-right"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+
+
+
+
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    @Html.PagedListPager(Model.BlogSayfa, page => Url.Action("Blog", new { page = page }), new PagedListRenderOptions { DisplayLinkToFirstPage = PagedListDisplayMode.Never, DisplayLinkToLastPage = PagedListDisplayMode.Never, DisplayLinkToPreviousPage = PagedListDisplayMode.Always, DisplayLinkToNextPage = PagedListDisplayMode.Always })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section ftco-intro" style="background-image: url(/Content/images/Mustang.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md-6 heading-section heading-section-white ftco-animate">
+                <h2 class="mb-3">Blog paylaşmak için 1 adet görsel,Başlık,Tarih ve Yaşadıklarınızı Mail adresimize gönderin.</h2>
+            </div>
+        </div>
+    </div>
+</section>

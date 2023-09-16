@@ -1,0 +1,31 @@
+﻿
+@model RentaCar.Models.tbl_Blog
+
+
+@{
+    ViewBag.Title = "YeniBlog";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Blog Ekle</h2>
+
+
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(c => c.Baslik)
+    @Html.TextBoxFor(c => c.Baslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Tarih)
+    @Html.TextBoxFor(c => c.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.BlogImage)
+    @Html.TextBoxFor(c => c.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Aciklama)
+    @Html.TextAreaFor(c => c.Aciklama, 13, 1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(c => c.Onecikan, "Öne Çıkanlar (1-Anasayfa'da Görünür,0-Anasayfa'da Görümez)")
+    @Html.TextBoxFor(c => c.Onecikan, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Blog Ekle</button>
+</form>

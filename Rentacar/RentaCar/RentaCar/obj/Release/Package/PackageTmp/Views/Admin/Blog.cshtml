@@ -1,0 +1,40 @@
+﻿
+
+@model List<RentaCar.Models.tbl_Blog>
+
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>BAŞLIK</th>
+                <th>SİL</th>
+                <th>GÜNCELLE</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.ID</td>
+                    <td>@c.Baslik</td>
+                    <td><a href="/Admin/BlogSil/@c.ID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Admin/BlogGetir/@c.ID" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a href="/Admin/YeniBlog/" class="btn btn-primary">Blog Ekle</a>
+<br />
+<br />
+<br />
+
+

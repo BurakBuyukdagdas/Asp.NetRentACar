@@ -1,0 +1,23 @@
+﻿
+
+@model RentaCar.Models.tbl_marka
+
+@{
+    ViewBag.Title = "MarkaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Marka Güncelle</h2>
+<br />
+@using (Html.BeginForm("MarkaGuncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(c => c.MarkaID)
+    @Html.TextBoxFor(c => c.MarkaID, new { @class = "form-control",@readonly="raadonly" })
+    <br />
+    @Html.LabelFor(c => c.MarkaAdi)
+    @Html.TextBoxFor(c => c.MarkaAdi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Marka Güncelle</button>
+}
+
+

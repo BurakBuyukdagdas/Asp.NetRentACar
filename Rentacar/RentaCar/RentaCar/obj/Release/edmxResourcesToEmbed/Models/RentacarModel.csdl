@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="u1400114_dbA9AModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdin" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Arac">
+    <Key>
+      <PropertyRef Name="AracID" />
+    </Key>
+    <Property Name="AracID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipID" Type="Int32" />
+    <Property Name="MarkaID" Type="Int32" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rengi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vitesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gorsel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fiyati" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Onecikanlar" Type="Int32" />
+    <Property Name="Aktifmi" Type="Int32" />
+    <NavigationProperty Name="tbl_Aracturu" Relationship="Self.FK_tbl_Arac_tbl_Aracturu" FromRole="tbl_Arac" ToRole="tbl_Aracturu" />
+    <NavigationProperty Name="tbl_marka" Relationship="Self.FK_tbl_Arac_tbl_marka" FromRole="tbl_Arac" ToRole="tbl_marka" />
+  </EntityType>
+  <EntityType Name="tbl_Aracturu">
+    <Key>
+      <PropertyRef Name="TipID" />
+    </Key>
+    <Property Name="TipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Arac" Relationship="Self.FK_tbl_Arac_tbl_Aracturu" FromRole="tbl_Aracturu" ToRole="tbl_Arac" />
+  </EntityType>
+  <EntityType Name="tbl_Ayarlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AltsayfaAdet" Type="Int32" />
+    <Property Name="AnasayfaAdet" Type="Int32" />
+    <Property Name="TelefonNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KısaAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Blog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BlogImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Onecikan" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Hakkimizda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_iletisim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_marka">
+    <Key>
+      <PropertyRef Name="MarkaID" />
+    </Key>
+    <Property Name="MarkaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarkaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Arac" Relationship="Self.FK_tbl_Arac_tbl_marka" FromRole="tbl_marka" ToRole="tbl_Arac" />
+  </EntityType>
+  <Association Name="FK_tbl_Arac_tbl_Aracturu">
+    <End Role="tbl_Aracturu" Type="Self.tbl_Aracturu" Multiplicity="0..1" />
+    <End Role="tbl_Arac" Type="Self.tbl_Arac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Aracturu">
+        <PropertyRef Name="TipID" />
+      </Principal>
+      <Dependent Role="tbl_Arac">
+        <PropertyRef Name="TipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Arac_tbl_marka">
+    <End Role="tbl_marka" Type="Self.tbl_marka" Multiplicity="0..1" />
+    <End Role="tbl_Arac" Type="Self.tbl_Arac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_marka">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="tbl_Arac">
+        <PropertyRef Name="MarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="u1400114_dbA9AEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
+    <EntitySet Name="tbl_Arac" EntityType="Self.tbl_Arac" />
+    <EntitySet Name="tbl_Aracturu" EntityType="Self.tbl_Aracturu" />
+    <EntitySet Name="tbl_Ayarlar" EntityType="Self.tbl_Ayarlar" />
+    <EntitySet Name="tbl_Blog" EntityType="Self.tbl_Blog" />
+    <EntitySet Name="tbl_Hakkimizda" EntityType="Self.tbl_Hakkimizda" />
+    <EntitySet Name="tbl_iletisim" EntityType="Self.tbl_iletisim" />
+    <EntitySet Name="tbl_marka" EntityType="Self.tbl_marka" />
+    <AssociationSet Name="FK_tbl_Arac_tbl_Aracturu" Association="Self.FK_tbl_Arac_tbl_Aracturu">
+      <End Role="tbl_Aracturu" EntitySet="tbl_Aracturu" />
+      <End Role="tbl_Arac" EntitySet="tbl_Arac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Arac_tbl_marka" Association="Self.FK_tbl_Arac_tbl_marka">
+      <End Role="tbl_marka" EntitySet="tbl_marka" />
+      <End Role="tbl_Arac" EntitySet="tbl_Arac" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

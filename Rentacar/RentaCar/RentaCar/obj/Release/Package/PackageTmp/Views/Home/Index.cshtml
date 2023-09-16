@@ -1,0 +1,452 @@
+﻿@using RentaCar.MVVM
+@model AnaSayfaModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/css/animate.css">
+
+    <link rel="stylesheet" href="/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Content/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/Content/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/Content/css/aos.css">
+
+    <link rel="stylesheet" href="/Content/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/Content/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/Content/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="/Content/css/flaticon.css">
+    <link rel="stylesheet" href="/Content/css/icomoon.css">
+    <link rel="stylesheet" href="/Content/css/style.css">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/Home/Index">Car<span>Book</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="/Home/Index" class="nav-link">Anasayfa</a></li>
+                    <li class="nav-item"><a href="/Home/About" class="nav-link">Hakkımızda</a></li>
+                    <li class="nav-item"><a href="/Home/Hizmetlerimiz" class="nav-link">Hizmetlerimiz</a></li>
+                    <li class="nav-item"><a href="/Home/Araclarimiz" class="nav-link">Araçlarımız</a></li>
+                    <li class="nav-item"><a href="/Home/Blog" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="/Home/iletisim" class="nav-link">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+
+
+
+
+
+
+
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('/Content/images/Mustang.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+                <div class="col-lg-8 ftco-animate">
+                    <div class="text w-100 text-center mb-md-5 pb-md-5">
+                        <h1 class="mb-4">Araç &amp; Filo Kiralamaya Hazır mısın?</h1>
+                        <p style="font-size: 18px;">En güvenilir ekibimiz yıllardır sektörü yönlendiriyoruz.</p>
+                        <a href="https://www.youtube.com/watch?v=yRpn_dX4DWs" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <span class="ion-ios-play"></span>
+                            </div>
+                            <div class="heading-title ml-5">
+                                <span>Bizi Tanımak için Video'yu açın.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-12	featured-top">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <form action="@Url.Action("AramaEkranı", "Home")" method="get" class="request-form ftco-animate bg-primary">
+                                <h2>Arama Ekranı</h2>
+                                <div class="form-group">
+                                    <label for="" class="label">Araç Türü Yazınız</label>
+                                    <input type="text" name="aracTuru" class="form-control" placeholder="Sedan,Hatchback,Suv,Cabrio,Pick-up,">
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="label">Marka Giriniz</label>
+                                    <input type="text" name="marka" class="form-control" placeholder="Mercedes, Bmw, Audi...">
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group mr-2">
+                                        <label for="" class="label">Teslim Alma Tarihi</label>
+                                        <input type="text" class="form-control" id="book_pick_date" placeholder="Tarih">
+                                    </div>
+                                    <div class="form-group ml-2">
+                                        <label for="" class="label">Teslim Etme Tarihi</label>
+                                        <input type="text" class="form-control" id="book_off_date" placeholder="Tarih">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="label">Teslim Alma Saati</label>
+                                    <input type="text" class="form-control" id="time_pick" placeholder="saat">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Araçları Gör" class="btn btn-secondary py-3 px-4">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="services-wrap rounded-right w-100">
+                                <h3 class="heading-section mb-4">Bizi Neden Tercih Etmelisiniz?</h3>
+                                <div class="row d-flex mb-4">
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Konforlu Sürüş</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Müşteri Odaklı</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Her Zaman Ulaşılabilir</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p><a href="https://wa.me/905345811690?text=Merhaba%2C%20Araç%20Kiralamak%20istiyorum." class="btn btn-primary py-3 px-4">Whatsapp İle İletişim Kur</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="ftco-section ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                    <span class="subheading">Tekliflerimiz</span>
+                    <h2 class="mb-2">Öne Çıkan Araçlarımız</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carousel-car owl-carousel">
+                        @foreach (var item in Model.AracVitrin)
+                        {
+                            <div class="item">
+                                <div class="car-wrap rounded ftco-animate">
+                                    <div class="img rounded d-flex align-items-end">
+                                        <img src="@item.Gorsel" alt="Araç Görseli" class="img-fluid" style="max-width: 100%; height: auto;" />
+                                    </div>
+                                    <div class="text">
+                                        <h2 class="mb-0"><a href="/Home/AracDetay/@item.AracID">@item.tbl_marka.MarkaAdi</a></h2>
+                                        <div class="d-flex mb-3">
+                                            <span class="cat">@item.tbl_Aracturu.TipAdi</span>
+                                            <p class="price ml-auto">@item.Fiyati <span>/1 Gün</span></p>
+                                        </div>
+                                        <p class="d-flex mb-0 d-block">
+                                            <a href="/Home/AracDetay/@item.AracID" class="btn btn-primary py-2 mr-1">Detaylar</a>
+                                            <a href="https://wa.me/905345811690?text=Merhaba%2C%20Araç%20Kiralamak%20istiyorum." class="btn btn-secondary py-2 ml-1">Araç Kirala</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-about">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/Content/images/about.jpg);">
+                </div>
+                <div class="col-md-6 wrap-about ftco-animate">
+                    <div class="heading-section heading-section-white pl-md-5">
+                        <span class="subheading">Hakkımızda</span>
+                        <h2 class="mb-4">Firmamıza Hoş Geldiniz</h2>
+
+                        <p>
+                            Seyahat deneyiminizi unutulmaz kılmayı amaçlayan öncü bir araç kiralama firmasıyız. 20 yılı aşkın süredir sektörde hizmet veriyoruz ve müşterilerimize en kaliteli, güvenilir ve konforlu araçları sunarak seyahatlerine eşsiz bir değer katıyoruz.
+                        </p>
+                        <p>Vizyonumuz, her müşterimizin ihtiyaçlarına uygun araçları bulabilmesini sağlamaktır. Lüks araçlardan ekonomik seçeneklere, aile tatillerinden iş seyahatlerine kadar her türden yolculuk için geniş bir araç yelpazesi sunuyoruz. </p>
+                        <p><a href="/Home/About" class="btn btn-primary py-3 px-4">Devamını Oku</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <span class="subheading">Hizmetlerimiz</span>
+                    <h2 class="mb-3">Sizlere Sunduklarımız</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">Güvenlik</h3>
+                            <p>Araçlarımızın Bakımı Düzenli Yapıldığı için Her Zaman Yola Güvenle Çıkmaya Hazır</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">Konfor</h3>
+                            <p>Araçlarımızın Tamamı Seçkin Olması Nedini ile Rahatlık ve Konfordan Ödün Vermeyeceksiniz.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">İletişim</h3>
+                            <p>Bizlere 7/24 Ulaşabilir ve En Küçük Sorunda Muhatap Bulabileceksiniz.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">Filo Kiralama</h3>
+                            <p>Tüm Şirketlere Deneyimlerimiz ile Filo Kiralayabiliyoruz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-intro" style="background-image: url(/Content/images/bg_3.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6 heading-section heading-section-white ftco-animate">
+                    <h2 class="mb-3">Hemen Araç kiralamak için iletişime Geçin</h2>
+                    <a href="https://wa.me/905345811690?text=Merhaba%2C%20Araç%20Kiralamak%20istiyorum." class="btn btn-primary btn-lg">Mesaj At</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br />
+
+    <section class="ftco-section ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                    <span class="subheading">Blog</span>
+                    <h2 class="mb-2">Araç Kirlama Sonrası Sizden Gelenler</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carousel-car owl-carousel">
+                        @foreach (var item in Model.BlogVitrin)
+                        {
+                            string truncatedTitle = item.Baslik.Length > 13 ? item.Baslik.Substring(0, 13) + "..." : item.Baslik;
+
+                            <div class="item">
+                                <div class="car-wrap rounded ftco-animate">
+                                    <a href="/Home/BlogDetay/@item.ID" class="block-20 img" style="background-image: url('@item.BlogImage'); background-size: cover; background-position: center; width: 100%; height: 300px;">
+                                    </a>
+                                    <div class="text">
+                                        <h3 class="mb-0">@truncatedTitle</h3>
+                                        <div class="meta mb-3">
+                                            <div>@item.Tarih.ToString("dd-MM-yyyy")</div>
+                                        </div>
+                                        <p><a href="/Home/BlogDetay/@item.ID" class="btn btn-primary py-2">Devamını Oku</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="30">0</strong>
+                            <span>Yıllık <br>Deneyim</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="1090">0</strong>
+                            <span>Adet <br>Araç</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="2590">0</strong>
+                            <span>Mutlu <br>Müşteri</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text d-flex align-items-center">
+                            <strong class="number" data-number="6">0</strong>
+                            <span>Adet <br>Şube</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
+                        <p>@ViewBag.Aciklama</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="https://tr.linkedin.com/in/burak-buyukdagdas%02a842b825a"><span class="icon-linkedin"></span></a></li>
+                            <li class="ftco-animate"><a href="https://github.com/BurakBuyukdagdas"><span class="icon-github"></span></a></li>
+                            <li class="ftco-animate"><a href="mailto:iz.burak@hotmail.com"><span class="icon-mail_outline"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Kısa Yollar</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/Home/About/" class="py-2 d-block">Hakkımızda</a></li>
+                            <li><a href="/Home/Hizmetlerimiz/" class="py-2 d-block">Hizmetlerimiz</a></li>
+                            <li><a href="/Home/Araclarimiz/" class="py-2 d-block">Araçlarımız</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Kısa Yollar</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/Home/Blog/" class="py-2 d-block">Blog</a></li>
+                            <li><a href="/Home/iletisim/" class="py-2 d-block">İletişim</a></li>
+                            <li><a href="/Admin/Index/" class="py-2 d-block">Giriş</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">İletişim</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">@ViewBag.Adres</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">@ViewBag.Telefon</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@ViewBag.Mail</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Bu Site Burak Büyükdağdaş Tarafından Yapılmıştır.
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    <script src="/Content/js/jquery.min.js"></script>
+    <script src="/Content/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/Content/js/popper.min.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery.easing.1.3.js"></script>
+    <script src="/Content/js/jquery.waypoints.min.js"></script>
+    <script src="/Content/js/jquery.stellar.min.js"></script>
+    <script src="/Content/js/owl.carousel.min.js"></script>
+    <script src="/Content/js/jquery.magnific-popup.min.js"></script>
+    <script src="/Content/js/aos.js"></script>
+    <script src="/Content/js/jquery.animateNumber.min.js"></script>
+    <script src="/Content/js/bootstrap-datepicker.js"></script>
+    <script src="/Content/js/jquery.timepicker.min.js"></script>
+    <script src="/Content/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="/Content/js/google-map.js"></script>
+    <script src="/Content/js/main.js"></script>
+
+</body>
+</html>
